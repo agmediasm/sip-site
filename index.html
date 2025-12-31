@@ -325,17 +325,6 @@
       opacity: 0;
     }
     
-    .hero-mockup {
-      position: relative;
-      z-index: 2;
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 1s ease 0.4s forwards;
-      opacity: 0;
-    }
-    
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     
@@ -779,18 +768,7 @@
       .hero-content { max-width: 100%; }
       .hero-subtitle { margin: 0 auto 28px; }
       .hero-ctas { justify-content: center; flex-wrap: wrap; }
-      .hero-mockup { margin-top: 40px; }
-      .phone-mockup { 
-        width: 260px; 
-        height: 540px; 
-        transform: none;
-      }
-      .phone-mockup:hover { transform: none; }
       .scroll-indicator { display: none; }
-      .sip-header { padding: 42px 14px 12px; }
-      .sip-categories { padding: 10px 14px; }
-      .sip-menu { padding: 6px 14px; gap: 8px; }
-      .sip-item { padding: 14px 14px; }
     }
     
     @media (max-width: 900px) {
@@ -816,7 +794,6 @@
       .btn { padding: 12px 24px; font-size: 10px; }
       .section-title { font-size: 28px; }
       .stat-number { font-size: 44px; }
-      .phone-mockup { width: 240px; height: 500px; }
       section { padding: 50px 16px; }
       .cta { padding: 80px 16px; }
     }
@@ -865,86 +842,7 @@
       </div>
     </div>
     
-    <div class="hero-mockup">
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <div class="sip-app">
-            <!-- Header -->
-            <div class="sip-header">
-              <div class="sip-logo">S I P</div>
-              <div class="sip-separator"></div>
-              <div class="sip-table-info">
-                <div class="sip-table-name">VIP 1</div>
-                <div class="sip-venue-name">CONCERT CONNECT-R</div>
-              </div>
-              <div class="sip-header-icons">
-                <div class="sip-icon-btn outline">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                </div>
-                <div class="sip-icon-btn filled">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Categories -->
-            <div class="sip-categories">
-              <div class="sip-cat active">Bottles</div>
-              <div class="sip-cat inactive">Champagne</div>
-              <div class="sip-cat inactive">Cocktails</div>
-              <div class="sip-cat inactive">Shots</div>
-            </div>
-            
-            <!-- Menu Items -->
-            <div class="sip-menu">
-              <div class="sip-item">
-                <div class="sip-item-left">
-                  <div class="sip-item-name">Hennessy VS</div>
-                  <div class="sip-item-desc">Cognac 700ml</div>
-                </div>
-                <div class="sip-item-right">
-                  <div class="sip-item-price">520 <span>LEI</span></div>
-                  <button class="sip-add-btn">+ ADAUGĂ</button>
-                </div>
-              </div>
-              
-              <div class="sip-item">
-                <div class="sip-item-left">
-                  <div class="sip-item-name">Belvedere <span class="sip-badge premium">Premium</span></div>
-                  <div class="sip-item-desc">Polish Vodka 700ml</div>
-                </div>
-                <div class="sip-item-right">
-                  <div class="sip-item-price">480 <span>LEI</span></div>
-                  <button class="sip-add-btn">+ ADAUGĂ</button>
-                </div>
-              </div>
-              
-              <div class="sip-item">
-                <div class="sip-item-left">
-                  <div class="sip-item-name">Grey Goose <span class="sip-badge popular">Popular</span></div>
-                  <div class="sip-item-desc">Vodka 700ml</div>
-                </div>
-                <div class="sip-item-right">
-                  <div class="sip-item-price">450 <span>LEI</span></div>
-                  <button class="sip-add-btn">+ ADAUGĂ</button>
-                </div>
-              </div>
-              
-              <div class="sip-item">
-                <div class="sip-item-left">
-                  <div class="sip-item-name">Jack Daniels</div>
-                  <div class="sip-item-desc">Tennessee Whiskey 700ml</div>
-                </div>
-                <div class="sip-item-right">
-                  <div class="sip-item-price">380 <span>LEI</span></div>
-                  <button class="sip-add-btn">+ ADAUGĂ</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Phone mockup removed -->
     
     <div class="scroll-indicator">Scroll</div>
   </section>
