@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIP - The Ordering System Built for Nightlife</title>
+  <title>SIP , The Ordering System Built for Nightlife</title>
   <meta name="description" content="Turn every table into a revenue machine. QR ordering, real-time operations, zero lost orders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥂</text></svg>">
+
   <style>
     :root{
       --noir:#0a0a0c;
       --onyx:#111113;
       --charcoal:#1a1a1d;
       --slate:#252529;
-      --card-bg:#1a1a1d;
       --champagne:#d4af37;
       --champagne-light:#e8c964;
-      --champagne-dark:#b8942d;
       --champagne-dim:rgba(212,175,55,0.12);
       --champagne-glow:rgba(212,175,55,0.5);
       --gold:#ffd700;
@@ -28,7 +27,6 @@
       --muted-dark:rgba(255,255,255,0.4);
       --border:rgba(255,255,255,0.08);
       --border-light:rgba(255,255,255,0.12);
-
       --nav-h:84px;
     }
 
@@ -110,6 +108,7 @@
       border-radius:10px;
       cursor:pointer;
       transition:all 0.4s ease;
+      -webkit-tap-highlight-color:transparent;
     }
 
     .btn-primary{
@@ -310,7 +309,7 @@
       text-transform:uppercase;
       color:var(--champagne);
       border:1px solid var(--champagne-dim);
-      border-radius:8px;
+      border-radius:999px;
       margin-bottom:28px;
       position:relative;
       overflow:hidden;
@@ -489,6 +488,7 @@
       line-height:1.6;
     }
 
+    /* Solution Flow */
     .solution-flow{
       margin-top:60px;
       padding:50px;
@@ -592,7 +592,7 @@
       color:var(--muted);
     }
 
-    /* Apps */
+    /* Apps Grid */
     .how-it-works{background:var(--onyx);}
 
     .apps-grid{
@@ -646,12 +646,14 @@
     }
 
     .app-card ul{list-style:none;margin-bottom:20px;}
+
     .app-card li{
       padding:10px 0;
       font-size:13px;
       color:var(--platinum);
       border-bottom:1px solid var(--border);
     }
+
     .app-card li:last-child{border-bottom:none;}
 
     .app-card-footer{
@@ -660,6 +662,7 @@
       font-size:12px;
       color:var(--muted);
     }
+
     .app-card-footer strong{color:var(--champagne);}
 
     /* Features */
@@ -798,6 +801,7 @@
 
     .cta-email a:hover{text-decoration:underline;}
 
+    /* Footer */
     footer{
       padding:40px 60px;
       border-top:1px solid var(--border);
@@ -829,11 +833,7 @@
       nav{padding:16px 24px;}
       nav.scrolled{padding:12px 24px;}
       section{padding:70px 24px;}
-
-      .hero{
-        padding:calc(var(--nav-h) + 26px) 24px 44px;
-      }
-
+      .hero{padding:calc(var(--nav-h) + 26px) 24px 44px;}
       .hero-inner{transform:translateY(-10px);}
       .hero-content{max-width:740px;}
       .hero-subtitle{max-width:600px;margin-bottom:34px;}
@@ -844,83 +844,104 @@
     @media (max-width:900px){
       .nav-links{display:none;}
       .mobile-btn{display:block;}
-
       .problems-grid,.stats-grid,.apps-grid{grid-template-columns:1fr;}
       .features-grid,.owners-grid{grid-template-columns:1fr;}
-
       .flow-steps{flex-direction:column;}
       .flow-arrow{transform:rotate(90deg);}
-
       .hero-orb-1{width:320px;height:320px;top:-70px;right:-70px;}
       .hero-orb-2{width:260px;height:260px;bottom:-90px;left:-90px;}
       .hero-orb-3{display:none;}
     }
 
+    /* Mobile hero fix */
     @media (max-width:480px){
       :root{--nav-h:62px;}
+
       nav{padding:12px 16px;}
-      .logo{font-size:18px;letter-spacing:8px;}
+      nav.scrolled{padding:10px 16px;}
+      .logo{font-size:17px;letter-spacing:7px;}
 
       .hero{
-        padding:calc(var(--nav-h) + 18px) 16px 22px;
         min-height:100svh;
+        padding:calc(var(--nav-h) + env(safe-area-inset-top) + 10px) 16px 18px;
+        align-items:start;
       }
 
       .hero-inner{transform:none;}
+      .hero-content{width:100%;max-width:380px;}
 
       .hero-tag{
         padding:8px 14px;
-        margin-bottom:14px;
+        margin:0 auto 14px;
         font-size:9px;
-        border-radius:10px;
+        letter-spacing:2.6px;
+        border-radius:999px;
+        opacity:1;
+        animation:none;
       }
 
       .hero h1{
-        font-size:32px;
+        font-size:34px;
+        line-height:1.08;
         letter-spacing:-1px;
         margin-bottom:14px;
-        line-height:1.08;
+        opacity:1;
+        animation:none;
       }
 
       .hero-subtitle{
-        font-size:14px;
-        margin-bottom:18px;
+        font-size:14.5px;
         line-height:1.75;
         max-width:340px;
+        margin:0 auto 18px;
+        color:rgba(255,255,255,0.62);
+        opacity:1;
+        animation:none;
       }
 
       .hero-ctas{
+        width:100%;
         gap:10px;
-        margin-bottom:18px;
+        margin:0 auto 16px;
+        opacity:1;
+        animation:none;
       }
 
-      .btn{
-        padding:12px 22px;
+      .hero-ctas .btn{
+        width:100%;
+        max-width:340px;
+        padding:14px 18px;
         font-size:10px;
-        border-radius:12px;
+        border-radius:14px;
       }
 
       .hero-metrics{
         width:100%;
+        max-width:340px;
+        margin:0 auto;
         padding:12px 12px;
+        border-radius:16px;
+        background:rgba(17,17,19,0.22);
+        border:1px solid rgba(255,255,255,0.06);
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
         gap:10px;
-        border-radius:14px;
-        background:rgba(17,17,19,0.28);
-        flex-wrap:wrap;
-        justify-content:space-between;
+        opacity:1;
+        animation:none;
       }
 
+      .hero-metrics .divider{display:none;}
+
       .hero-metric{
-        width:33.33%;
         min-width:0;
+        width:100%;
         padding:6px 0;
         gap:4px;
       }
 
-      .hero-metric .kpi{font-size:16px;}
-      .hero-metric .lbl{font-size:9px;letter-spacing:1.4px;}
+      .hero-metric .kpi{font-size:16px;line-height:1.1;}
+      .hero-metric .lbl{font-size:9px;letter-spacing:1.2px;color:rgba(255,255,255,0.5);}
 
-      .hero-metrics .divider{display:none;}
       .scroll-indicator{display:none;}
 
       section{padding:50px 16px;}
@@ -928,8 +949,16 @@
       .section-title{font-size:28px;}
       .stat-number{font-size:44px;}
     }
+
+    @media (max-width:360px){
+      .hero h1{font-size:32px;}
+      .hero-subtitle{font-size:14px;}
+      .hero-ctas .btn{max-width:320px;}
+      .hero-metrics{max-width:320px;}
+    }
   </style>
 </head>
+
 <body>
   <nav id="nav">
     <a href="#" class="logo">S I P</a>
@@ -947,14 +976,8 @@
     <div class="hero-orb hero-orb-3"></div>
 
     <div class="particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
 
     <div class="hero-lines">
@@ -1007,7 +1030,7 @@
         <div class="problem-card">
           <div class="problem-icon">⏱️</div>
           <h3>Slow Service</h3>
-          <p>Guests wait 15+ minutes for a waiter. They order less. Or leave.</p>
+          <p>Guests wait 15 plus minutes for a waiter. They order less. Or leave.</p>
         </div>
 
         <div class="problem-card">
@@ -1019,7 +1042,7 @@
         <div class="problem-card">
           <div class="problem-icon">❓</div>
           <h3>Zero Data</h3>
-          <p>You don't know who your best customers are or what they want.</p>
+          <p>You do not know who your best customers are or what they want.</p>
         </div>
       </div>
 
@@ -1095,9 +1118,9 @@
           <div class="app-card-icon">📋</div>
           <h3>For Staff</h3>
           <ul>
-            <li>Real-time order alerts</li>
+            <li>Real time order alerts</li>
             <li>See assigned tables</li>
-            <li>One-tap order accept</li>
+            <li>One tap order accept</li>
             <li>Split payment support</li>
             <li>Inactive table alerts</li>
           </ul>
@@ -1153,7 +1176,7 @@
         <div class="feature-card">
           <div class="feature-icon">📊</div>
           <h3>Live Analytics</h3>
-          <p>Real-time revenue per event. Best selling products. Staff leaderboard. Customer value.</p>
+          <p>Real time revenue per event. Best selling products. Staff leaderboard. Customer value.</p>
           <div class="feature-result">→ Decisions based on data, not guesses</div>
         </div>
 
@@ -1208,7 +1231,7 @@
           <div class="owner-icon">👁️</div>
           <div>
             <h4>Full Visibility</h4>
-            <p>See exactly what is happening. Every order, every table, in real time.</p>
+            <p>See exactly what is happening. Every order, every table, every euro, in real time.</p>
           </div>
         </div>
 
@@ -1250,8 +1273,8 @@
   <section class="cta" id="contact">
     <div class="cta-content">
       <h2>Ready to Upgrade Your Service?</h2>
-      <p>15-minute demo. No commitment.<br>See exactly how SIP works for your venue.</p>
-      <a href="https://calendly.com/your-link" class="btn btn-primary" target="_blank">Book a Demo</a>
+      <p>15 minute demo. No commitment.<br>See exactly how SIP works for your venue.</p>
+      <a href="https://calendly.com/your-link" class="btn btn-primary" target="_blank" rel="noopener">Book a Demo</a>
       <p class="cta-email">or email us: <a href="mailto:contact@sip-app.ro">contact@sip-app.ro</a></p>
     </div>
   </section>
