@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIP , The Ordering System Built for Nightlife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SIP - The Ordering System Built for Nightlife</title>
   <meta name="description" content="Turn every table into a revenue machine. QR ordering, real-time operations, zero lost orders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,11 +164,14 @@
       margin-top:14px;
     }
 
-    /* HERO */
+    /* HERO - DESKTOP */
     .hero{
+      min-height:100vh;
       min-height:100svh;
-      display:grid;
-      place-items:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
       padding:calc(var(--nav-h) + 40px) 60px 64px;
       position:relative;
       overflow:hidden;
@@ -288,11 +291,11 @@
     .hero-inner{
       width:100%;
       max-width:1200px;
-      display:grid;
-      place-items:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       position:relative;
       z-index:2;
-      transform:translateY(-14px);
     }
 
     .hero-content{
@@ -428,16 +431,37 @@
 
     .scroll-indicator{
       position:absolute;
-      bottom:16px;
+      bottom:24px;
       left:50%;
       transform:translateX(-50%);
-      font-size:10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      z-index:2;
+      opacity:0;
+      animation:fadeIn 1s ease 1s forwards;
+    }
+
+    .scroll-indicator span{
+      font-size:9px;
+      font-weight:500;
       letter-spacing:3px;
       text-transform:uppercase;
       color:var(--muted-dark);
-      opacity:0.55;
-      pointer-events:none;
-      z-index:2;
+    }
+
+    .scroll-indicator::after{
+      content:'';
+      width:1px;
+      height:28px;
+      background:linear-gradient(to bottom, var(--champagne), transparent);
+      animation:scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse{
+      0%,100%{opacity:0.3;height:20px;}
+      50%{opacity:1;height:32px;}
     }
 
     /* Problems */
@@ -827,18 +851,13 @@
       color:var(--muted);
     }
 
-    /* Responsive */
+    /* Responsive - Tablet */
     @media (max-width:1024px){
       :root{--nav-h:72px;}
       nav{padding:16px 24px;}
       nav.scrolled{padding:12px 24px;}
       section{padding:70px 24px;}
-      .hero{padding:calc(var(--nav-h) + 26px) 24px 44px;}
-      .hero-inner{transform:translateY(-10px);}
-      .hero-content{max-width:740px;}
-      .hero-subtitle{max-width:600px;margin-bottom:34px;}
-      .hero-ctas{margin-bottom:38px;}
-      .hero-metrics{max-width:760px;}
+      .hero{padding:calc(var(--nav-h) + 30px) 24px 50px;}
     }
 
     @media (max-width:900px){
@@ -853,108 +872,174 @@
       .hero-orb-3{display:none;}
     }
 
-    /* Mobile hero fix */
+    /* MOBILE - HERO OPTIMIZAT */
     @media (max-width:480px){
-      :root{--nav-h:62px;}
+      :root{--nav-h:56px;}
 
-      nav{padding:12px 16px;}
-      nav.scrolled{padding:10px 16px;}
-      .logo{font-size:17px;letter-spacing:7px;}
+      nav{
+        padding:14px 16px;
+      }
+      
+      nav.scrolled{
+        padding:12px 16px;
+      }
+      
+      .logo{
+        font-size:16px;
+        letter-spacing:8px;
+      }
+      
+      .mobile-btn{
+        padding:10px 18px;
+        font-size:10px;
+      }
 
       .hero{
         min-height:100svh;
-        padding:calc(var(--nav-h) + env(safe-area-inset-top) + 10px) 16px 18px;
-        align-items:start;
+        min-height:calc(var(--vh, 1vh) * 100);
+        padding:0 20px;
+        padding-top:calc(var(--nav-h) + 24px);
+        padding-bottom:24px;
+        justify-content:space-between;
       }
 
-      .hero-inner{transform:none;}
-      .hero-content{width:100%;max-width:380px;}
+      .hero-inner{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      .hero-content{
+        width:100%;
+      }
 
       .hero-tag{
-        padding:8px 14px;
-        margin:0 auto 14px;
+        padding:8px 16px;
         font-size:9px;
-        letter-spacing:2.6px;
-        border-radius:999px;
+        letter-spacing:2px;
+        margin-bottom:20px;
         opacity:1;
         animation:none;
       }
 
       .hero h1{
-        font-size:34px;
-        line-height:1.08;
+        font-size:32px;
         letter-spacing:-1px;
-        margin-bottom:14px;
+        line-height:1.1;
+        margin-bottom:16px;
         opacity:1;
         animation:none;
       }
 
       .hero-subtitle{
-        font-size:14.5px;
-        line-height:1.75;
-        max-width:340px;
-        margin:0 auto 18px;
-        color:rgba(255,255,255,0.62);
+        font-size:14px;
+        line-height:1.65;
+        margin-bottom:28px;
+        max-width:100%;
         opacity:1;
         animation:none;
       }
 
       .hero-ctas{
-        width:100%;
-        gap:10px;
-        margin:0 auto 16px;
+        flex-direction:column;
+        gap:12px;
+        margin-bottom:28px;
         opacity:1;
         animation:none;
       }
 
       .hero-ctas .btn{
         width:100%;
-        max-width:340px;
-        padding:14px 18px;
-        font-size:10px;
-        border-radius:14px;
+        padding:16px 24px;
+        font-size:11px;
+        border-radius:12px;
       }
 
       .hero-metrics{
         width:100%;
-        max-width:340px;
-        margin:0 auto;
-        padding:12px 12px;
-        border-radius:16px;
-        background:rgba(17,17,19,0.22);
-        border:1px solid rgba(255,255,255,0.06);
-        display:grid;
-        grid-template-columns:1fr 1fr 1fr;
-        gap:10px;
+        padding:16px 12px;
+        border-radius:14px;
+        gap:0;
         opacity:1;
         animation:none;
       }
 
-      .hero-metrics .divider{display:none;}
+      .hero-metrics .divider{
+        display:none;
+      }
 
       .hero-metric{
+        flex:1;
         min-width:0;
-        width:100%;
-        padding:6px 0;
+        padding:8px 4px;
         gap:4px;
       }
 
-      .hero-metric .kpi{font-size:16px;line-height:1.1;}
-      .hero-metric .lbl{font-size:9px;letter-spacing:1.2px;color:rgba(255,255,255,0.5);}
+      .hero-metric .kpi{
+        font-size:18px;
+      }
 
-      .scroll-indicator{display:none;}
+      .hero-metric .lbl{
+        font-size:8px;
+        letter-spacing:1px;
+      }
+
+      .scroll-indicator{
+        position:relative;
+        bottom:auto;
+        left:auto;
+        transform:none;
+        margin-top:20px;
+        opacity:1;
+        animation:none;
+      }
+
+      .scroll-indicator span{
+        font-size:8px;
+        letter-spacing:2px;
+      }
+
+      .scroll-indicator::after{
+        height:20px;
+      }
+
+      /* Hide heavy effects on mobile */
+      .particles{
+        opacity:0.4;
+      }
+
+      .hero-lines{
+        display:none;
+      }
 
       section{padding:50px 16px;}
       .cta{padding:80px 16px;}
       .section-title{font-size:28px;}
       .stat-number{font-size:44px;}
+      
+      footer{padding:30px 16px;}
     }
 
+    /* Extra small phones */
     @media (max-width:360px){
-      .hero h1{font-size:32px;}
-      .hero-subtitle{font-size:14px;}
-      .hero-ctas .btn{max-width:320px;}
-      .hero-metrics{max-width:320px;}
+      .hero h1{font-size:28px;}
+      .hero-subtitle{font-size:13px;}
+      .hero-metric .kpi{font-size:16px;}
+      .hero-metric .lbl{font-size:7px;}
+    }
+
+    /* Landscape phones */
+    @media (max-height:500px) and (orientation:landscape){
+      .hero{
+        min-height:auto;
+        padding:80px 24px 40px;
+      }
+      
+      .hero h1{font-size:28px;margin-bottom:12px;}
+      .hero-subtitle{margin-bottom:20px;}
+      .hero-ctas{margin-bottom:20px;}
+      .scroll-indicator{display:none;}
     }
   </style>
 </head>
@@ -1016,7 +1101,9 @@
       </div>
     </div>
 
-    <div class="scroll-indicator">Scroll</div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+    </div>
   </section>
 
   <section class="problems" id="problems">
@@ -1030,7 +1117,7 @@
         <div class="problem-card">
           <div class="problem-icon">⏱️</div>
           <h3>Slow Service</h3>
-          <p>Guests wait 15 plus minutes for a waiter. They order less. Or leave.</p>
+          <p>Guests wait 15+ minutes for a waiter. They order less. Or leave.</p>
         </div>
 
         <div class="problem-card">
@@ -1042,7 +1129,7 @@
         <div class="problem-card">
           <div class="problem-icon">❓</div>
           <h3>Zero Data</h3>
-          <p>You do not know who your best customers are or what they want.</p>
+          <p>You don't know who your best customers are or what they want.</p>
         </div>
       </div>
 
@@ -1081,7 +1168,7 @@
         <div class="stat-card">
           <div class="stat-number">&lt;3m</div>
           <div class="stat-label">Order Time</div>
-          <p class="stat-desc">From tap to delivery, every single order</p>
+          <p class="stat-desc">From tap to delivery — every single order</p>
         </div>
 
         <div class="stat-card">
@@ -1118,9 +1205,9 @@
           <div class="app-card-icon">📋</div>
           <h3>For Staff</h3>
           <ul>
-            <li>Real time order alerts</li>
+            <li>Real-time order alerts</li>
             <li>See assigned tables</li>
-            <li>One tap order accept</li>
+            <li>One-tap order accept</li>
             <li>Split payment support</li>
             <li>Inactive table alerts</li>
           </ul>
@@ -1156,55 +1243,55 @@
           <div class="feature-icon">🔥</div>
           <h3>Smart Upsells</h3>
           <p>Vodka in cart? App suggests Red Bull. Rum? Suggests Cola. Social proof built in.</p>
-          <div class="feature-result">→ 20 to 30% higher average order value</div>
+          <div class="feature-result">→ 20-30% higher average order value</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">⏰</div>
           <h3>Inactive Table Alerts</h3>
-          <p>VIP table has not ordered in 30 minutes? Staff gets notified automatically.</p>
+          <p>VIP table hasn't ordered in 30 minutes? Staff gets notified automatically.</p>
           <div class="feature-result">→ More rounds sold, better service</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
           <h3>Instant Notifications</h3>
-          <p>Order placed, staff phone buzzes in 1 second. Sound alert cuts through the music.</p>
+          <p>Order placed → Staff phone buzzes in 1 second. Sound cuts through the music.</p>
           <div class="feature-result">→ Orders delivered in under 3 minutes</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📊</div>
           <h3>Live Analytics</h3>
-          <p>Real time revenue per event. Best selling products. Staff leaderboard. Customer value.</p>
+          <p>Real-time revenue per event. Best-selling products. Staff leaderboard. Customer LTV.</p>
           <div class="feature-result">→ Decisions based on data, not guesses</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">💳</div>
           <h3>Flexible Payments</h3>
-          <p>Split bills on the spot. Partial payments supported. Cash or card at delivery.</p>
+          <p>Split bills on the spot. Partial payments supported. Cash or card — staff chooses.</p>
           <div class="feature-result">→ Faster table turnover, no awkward splits</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📋</div>
           <h3>Reservation Management</h3>
-          <p>VIP reservations with table assignment. Staff sees who is coming before they arrive.</p>
+          <p>VIP reservations with table assignment. Staff sees who's coming before they arrive.</p>
           <div class="feature-result">→ Premium service from first contact</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🗺️</div>
           <h3>Visual Table Layout</h3>
-          <p>Drag and drop floor plan editor. VIP, Normal, Bar sections. Save layouts as templates.</p>
+          <p>Drag-and-drop floor plan editor. VIP, Normal, Bar sections. Save layouts as templates.</p>
           <div class="feature-result">→ Setup new events in 2 minutes</div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📱</div>
           <h3>Permanent QR Codes</h3>
-          <p>Print once, use forever. QR detects active event. Works offline, syncs when connected.</p>
+          <p>Print once, use forever. QR automatically detects active event.</p>
           <div class="feature-result">→ Zero setup on event night</div>
         </div>
       </div>
@@ -1223,7 +1310,7 @@
           <div class="owner-icon">💰</div>
           <div>
             <h4>More Revenue</h4>
-            <p>Upsells plus faster service plus no lost orders equals more revenue per night.</p>
+            <p>Upsells + faster service + no lost orders = 20-30% more revenue per night.</p>
           </div>
         </div>
 
@@ -1231,7 +1318,7 @@
           <div class="owner-icon">👁️</div>
           <div>
             <h4>Full Visibility</h4>
-            <p>See exactly what is happening. Every order, every table, every euro, in real time.</p>
+            <p>See exactly what's happening. Every order, every table, every euro — in real time.</p>
           </div>
         </div>
 
@@ -1247,15 +1334,15 @@
           <div class="owner-icon">⚡</div>
           <div>
             <h4>Staff Efficiency</h4>
-            <p>Same team, more output, or same output, smaller team. Your choice.</p>
+            <p>Same team, more output. Or same output, smaller team. Your choice.</p>
           </div>
         </div>
 
         <div class="owner-card">
           <div class="owner-icon">🛡️</div>
           <div>
-            <h4>Zero Theft, Zero Mistakes</h4>
-            <p>Every order logged. Every payment tracked. No more forgotten bottles.</p>
+            <h4>Zero Theft, Zero "Mistakes"</h4>
+            <p>Every order logged. Every payment tracked. No more "forgotten" bottles.</p>
           </div>
         </div>
 
@@ -1263,7 +1350,7 @@
           <div class="owner-icon">🚀</div>
           <div>
             <h4>Quick Setup</h4>
-            <p>Live in one week. Training included. No hardware needed, use phones you already have.</p>
+            <p>Live in one week. Training included. No hardware needed — use phones you already have.</p>
           </div>
         </div>
       </div>
@@ -1273,7 +1360,7 @@
   <section class="cta" id="contact">
     <div class="cta-content">
       <h2>Ready to Upgrade Your Service?</h2>
-      <p>15 minute demo. No commitment.<br>See exactly how SIP works for your venue.</p>
+      <p>15-minute demo. No commitment.<br>See exactly how SIP works for your venue.</p>
       <a href="https://calendly.com/your-link" class="btn btn-primary" target="_blank" rel="noopener">Book a Demo</a>
       <p class="cta-email">or email us: <a href="mailto:contact@sip-app.ro">contact@sip-app.ro</a></p>
     </div>
@@ -1286,6 +1373,13 @@
   </footer>
 
   <script>
+    // Fix pentru 100vh pe mobile
+    function setVH() {
+      document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    }
+    setVH();
+    window.addEventListener('resize', setVH);
+
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 
